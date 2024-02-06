@@ -123,18 +123,25 @@ export default function Page() {
             <hr className={"opacity-50 mb-2 mt-2"}/>
 
             {/*Middle Panel*/}
-            <div className={" col bg-white w-10/12 h-screen"}>
+            <div className={" col bg-gray-100 w-10/12 h-screen"}>
 
             {/* Search  bar*/}
-                <div className={"bg-black w-full h-24 mb-32 "}><h2>Search</h2></div>
+                <div className={"bg-white border-e-gray-300 w-full h-20 mb-5 "}>
 
+                  <div className={"bg-gray-100 w-72 rounded-r-lg gap-6 ml-6"}>
+                    <h2 className={"text-black text-[9px]"}>Search for..</h2>
+                </div>
+                    <div className={"flex ml-24 w-8 bg-blue-600 h-8"}></div>
+                </div>
+
+                <h1 className={"text-black  text-2xl ml-6"}>Dashboard</h1>
 
                 <div className={"flex justify-center w-full gap-5 p-6"}>
 
-                        <div className="w-full h-28 p-4  border-l-4 border-blue-700"><h3>EARNINGS (MONTHLY)</h3></div>
-                        <div className="w-full h-28 p-4  border-l-4 border-blue-700"><h3>EARNINGS (MONTHLY)</h3></div>
-                        <div className="w-full h-28 p-4  border-l-4 border-blue-700"><h3>EARNINGS (MONTHLY)</h3></div>
-                        <div className="w-full h-28 p-4  border-l-4 border-blue-700"><h3>EARNINGS (MONTHLY)</h3></div>
+                        <div className="w-full h-24 p-4  border-l-4 border-blue-500 rounded-lg shadow-2xl bg-white border-e-gray-300 "><h4 className={"text-blue-500 text-[11px] font-semibold"}>EARNINGS (MONTHLY)</h4></div>
+                        <div className="w-full h-24 p-4  border-l-4 border-green-500 rounded-lg shadow-2xl bg-white border-e-gray-300 "><h4 className={"text-green-500 text-[11px] font-semibold"}>EARNINGS (ANNUAL)</h4></div>
+                        <div className="w-full h-24 p-4  border-l-4 border-sky-500 rounded-lg shadow-2xl bg-white border-e-gray-300 "><h4 className={"text-sky-500 text-[11px] font-semibold"}>TASKS</h4></div>
+                        <div className="w-full h-24 p-4  border-l-4 border-orange-500 rounded-lg shadow-2xl bg-white border-e-gray-300 "><h4 className={"text-orange-500 text-[11px] font-semibold"}>PENDING REQUESTS</h4></div>
 
 
                 </div>
