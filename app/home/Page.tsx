@@ -22,7 +22,7 @@ import {Form} from "react-bootstrap";
 import dynamic from "next/dynamic";
 import {BsThreeDotsVertical} from "react-icons/bs";
 import PieChart1 from "@/app/charts/pieChart";
-import CardLineChart from "@/app/charts/lineChart";
+import LineChart1 from "@/app/charts/LineChart";
 
 
 const Chart = dynamic(() => import("react-apexcharts"), {ssr: false});
@@ -357,14 +357,14 @@ export default function Page() {
 
                         {/*Line Chart [not working!!!]*/}
                         {/* Image Added*/}
-                        <div className={"flex flex-row w-full justify-center  "}><Image
+                        {/*   <div className={"flex flex-row w-full justify-center  "}><Image
                             src="/chart.png"
                             width={600}
                             height={600}
                             alt="IllistrationImage"
                         />
-                        </div>
-
+                        </div>*/}
+                        <LineChart1/>
                     </div>
 
 
@@ -520,6 +520,7 @@ export default function Page() {
                     </div>
 
                 </div>
+
 
                 {/*    END OF MIDDLE*/}
             </div>

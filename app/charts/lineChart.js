@@ -1,131 +1,77 @@
 'use client'
-import React from "react";
-import Chart from "chart.js";
+import React, { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
-export default function CardLineChart() {
-    React.useEffect(() => {
-        var config = {
-            type: "line",
-            data: {
-                labels: [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                ],
-                datasets: [
-                    {
-                        label: new Date().getFullYear(),
-                        backgroundColor: "#3182ce",
-                        borderColor: "#3182ce",
-                        data: [65, 78, 66, 44, 56, 67, 75],
-                        fill: false,
-                    },
-                    {
-                        label: new Date().getFullYear() - 1,
-                        fill: false,
-                        backgroundColor: "#edf2f7",
-                        borderColor: "#edf2f7",
-                        data: [40, 68, 86, 74, 56, 60, 87],
-                    },
-                ],
-            },
-            options: {
-                maintainAspectRatio: false,
-                responsive: true,
-                title: {
-                    display: false,
-                    text: "Sales Charts",
-                    fontColor: "white",
-                },
-                legend: {
-                    labels: {
-                        fontColor: "white",
-                    },
-                    align: "end",
-                    position: "bottom",
-                },
-                tooltips: {
-                    mode: "index",
-                    intersect: false,
-                },
-                hover: {
-                    mode: "nearest",
-                    intersect: true,
-                },
-                scales: {
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: "rgba(255,255,255,.7)",
-                            },
-                            display: true,
-                            scaleLabel: {
-                                display: false,
-                                labelString: "Month",
-                                fontColor: "white",
-                            },
-                            gridLines: {
-                                display: false,
-                                borderDash: [2],
-                                borderDashOffset: [2],
-                                color: "rgba(33, 37, 41, 0.3)",
-                                zeroLineColor: "rgba(0, 0, 0, 0)",
-                                zeroLineBorderDash: [2],
-                                zeroLineBorderDashOffset: [2],
-                            },
-                        },
-                    ],
-                    yAxes: [
-                        {
-                            ticks: {
-                                fontColor: "rgba(255,255,255,.7)",
-                            },
-                            display: true,
-                            scaleLabel: {
-                                display: false,
-                                labelString: "Value",
-                                fontColor: "white",
-                            },
-                            gridLines: {
-                                borderDash: [3],
-                                borderDashOffset: [3],
-                                drawBorder: false,
-                                color: "rgba(255, 255, 255, 0.15)",
-                                zeroLineColor: "rgba(33, 37, 41, 0)",
-                                zeroLineBorderDash: [2],
-                                zeroLineBorderDashOffset: [2],
-                            },
-                        },
-                    ],
-                },
-            },
+export default function App() {
+    const canvasEl = useRef(null);
+
+    const colors = {
+        purple: {
+            default: "rgba(149, 76, 233, 1)",
+            half: "rgba(149, 76, 233, 0.5)",
+            quarter: "rgba(149, 76, 233, 0.25)",
+            zero: "rgba(149, 76, 233, 0)"
+        },
+        indigo: {
+            default: "rgba(80, 102, 120, 1)",
+            quarter: "rgba(80, 102, 120, 0.25)"
+        }
+    };
+
+    useEffect(() => {
+        const ctx = canvasEl.current.getContext("2d");
+        // const ctx = document.getElementById("myChart");
+
+        const gradient = ctx.createLinearGradient(0, 16, 0, 600);
+        gradient.addColorStop(0, colors.purple.half);
+        gradient.addColorStop(0.65, colors.purple.quarter);
+        gradient.addColorStop(1, colors.purple.zero);
+
+        const weight = [60.0, 60.2, 59.1, 61.4, 59.9, 60.2, 59.8, 58.6, 59.6, 59.2];
+
+        const labels = [
+            "Week 1",
+            "Week 2",
+            "Week 3",
+            "Week 4",
+            "Week 5",
+            "Week 6",
+            "Week 7",
+            "Week 8",
+            "Week 9",
+            "Week 10"
+        ];
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    backgroundColor: gradient,
+                    label: "My First Dataset",
+                    data: weight,
+                    fill: true,
+                    borderWidth: 2,
+                    borderColor: colors.purple.default,
+                    lineTension: 0.2,
+                    pointBackgroundColor: colors.purple.default,
+                    pointRadius: 3
+                }
+            ]
         };
+        const config = {
+            type: "line",
+            data: data
+        };
+        const myLineChart = new Chart(ctx, config);
 
-    }, []);
+        return function cleanup() {
+            myLineChart.destroy();
+        };
+    });
+
     return (
-        <>
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700">
-                <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
-                    <div className="flex flex-wrap items-center">
-                        <div className="relative w-full max-w-full flex-grow flex-1">
-                            <h6 className="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
-                                Overview
-                            </h6>
-                            <h2 className="text-white text-xl font-semibold">Sales value</h2>
-                        </div>
-                    </div>
-                </div>
-                <div className="p-4 flex-auto">
-                    {/* Chart */}
-                    <div className="relative h-350-px">
-                        <canvas id="line-chart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </>
+        <div className="App">
+            <span>Chart.js Demo</span>
+            <canvas id="myChart" ref={canvasEl} height="100" />
+        </div>
     );
 }
