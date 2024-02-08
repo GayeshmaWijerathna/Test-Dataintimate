@@ -588,6 +588,8 @@ export default function Page() {
 
                     </div>
 
+
+                    {/*Development text*/}
                     <div
                         className={"flex flex-col w-6/12 h-56 bg-[#f8f9fc] m-2 shadow-2xl border-e-gray-300 p-2 rounded-lg"}>
 
