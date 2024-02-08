@@ -20,13 +20,14 @@ export default function LineChart1() {
 
     useEffect(() => {
         const ctx = canvasEl.current.getContext("2d");
+        // const ctx = document.getElementById("myChart");
 
         const gradient = ctx.createLinearGradient(0, 16, 0, 600);
         gradient.addColorStop(0, colors.purple.half);
         gradient.addColorStop(0.65, colors.purple.quarter);
         gradient.addColorStop(1, colors.purple.zero);
 
-        const weight = ["$0", "$10,000", "$20,000", "$30,000", "$40,000"];
+        const weight = [0, 10000, 20000, "$30,000", "$40,000"];
 
         const labels = [
             "Jan",
@@ -35,18 +36,20 @@ export default function LineChart1() {
             "Jul",
             "Sep",
             "Nov"
+
         ];
         const data = {
             labels: labels,
             datasets: [
                 {
                     backgroundColor: gradient,
+                    label: "My First Dataset",
                     data: weight,
                     fill: true,
                     borderWidth: 2,
-                    borderColor: colors.blue.default,
+                    borderColor: colors.purple.default,
                     lineTension: 0.2,
-                    pointBackgroundColor: colors.white.default,
+                    pointBackgroundColor: colors.purple.default,
                     pointRadius: 3
                 }
             ]
@@ -55,10 +58,10 @@ export default function LineChart1() {
             type: "line",
             data: data
         };
-        const LineChart1 = new Chart(ctx, config);
+        const myLineChart = new Chart(ctx, config);
 
         return function cleanup() {
-             LineChart1.destroy();
+            myLineChart.destroy();
         };
     });
 
