@@ -1,4 +1,3 @@
-
 import {FaCalendar, FaDownload, FaLaughWink} from "react-icons/fa";
 import {FaTachometerAlt} from "react-icons/fa";
 import React from "react";
@@ -498,13 +497,19 @@ export default function Page() {
                         <h1 className={"text-[#4e73df] font-semibold p-4"}>Illustrations</h1>
                         <hr className={"opacity-70"}/>
 
-                        <div className={"flex flex-row w-full"}> <Image
+                        <div className={"flex flex-row w-full justify-center"}><Image
                             src="/image1.png"
-                            width={500}
-                            height={500}
-                            alt="Picture of the author"
-                        /></div>
+                            width={300}
+                            height={300}
+                            alt="IllistrationImage"
+                        />
 
+                        </div>
+                        <p className={"text-gray-500 mt-4 "}>Add some quality, svg illustrations to your project courtesy of <span
+                            className={"text-sky-500"}><a href="https://undraw.co/">unDraw</a></span>, a constantly
+                            updated collection of beautiful svg images that you can use completely free and without
+                            attribution!</p>
+                       <p className={"text-sky-500 mt-8 "}> <a href="https://undraw.co/">Browse Illustrations on unDraw →</a></p>
 
                     </div>
 
