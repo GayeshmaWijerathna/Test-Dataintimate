@@ -20,7 +20,10 @@ import Image from 'next/image'
 import {Square3Stack3DIcon} from "@heroicons/react/24/outline";
 import {Form} from "react-bootstrap";
 import dynamic from "next/dynamic";
-import {Card, CardBody, CardHeader, Typography} from "@material-tailwind/react";
+import {BsThreeDotsVertical} from "react-icons/bs";
+import PieChart1 from "@/app/charts/pieChart";
+import CardLineChart from "@/app/charts/lineChart";
+
 
 const Chart = dynamic(() => import("react-apexcharts"), {ssr: false});
 
@@ -232,18 +235,20 @@ export default function Page() {
 
                 {/* Search  bar*/}
 
-                <div className={"flex flex-row bg-gray-100 shadow-2xl border-e-gray-300 w-full h-20"}>
+                <div className={"flex flex-row bg-gray-100 shadow-2xl border-e-gray-300 w-full h-16"}>
 
-                    <div className={"flex flex-col ml-3 mt-2 p-2 w-8/12"}>
-                        <Form className="d-flex flex-col p-2 items-center justify-center">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search for.."
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button className="outline-success  bg-blue-600 text-1xl p-1"><FaSearch/></Button>
-                        </Form>
+                    <div className={"flex justify-center ml-3 flex-col  w-8/12"}>
+                        <div className={"flex  p-3 "}>
+                            <Form className="d-flex text-black flex-col items-center justify-center">
+                                <Form.Control
+                                    type="search"
+                                    placeholder="Search for.."
+                                    aria-label="Search"
+
+                                />
+                            </Form> <Button className="outline-success rounded-r bg-blue-600  p-1"><FaSearch
+                            className={"text-1xl"}/></Button>
+                        </div>
                     </div>
 
                     <div className={"flex flex-col w-1/12 text-gray-600 text-3xl justify-center opacity-50"}>
@@ -254,7 +259,7 @@ export default function Page() {
                         className={"text-[12px]"}>Douglas McGee</p><FcBusinessman/></div>
 
                 </div>
-                {/*</div>*/}
+
                 <div>
                     <div className={"flex flex-row w-full p-6"}>
                         <div className={"flex flex-col w-6/12 text-2xl text-[#5a5c69]"}><p>Dashboard</p></div>
@@ -265,9 +270,10 @@ export default function Page() {
                     </div>
                 </div>
 
-
+                {/*Display Earnings*/}
                 <div className="flex flex-nowrap w-full gap-5 p-6 justify-center">
 
+                    {/*Monthly*/}
                     <div
                         className="flex  w-full h-28 p-4 border-l-8 border-blue-800 rounded-lg shadow-2xl bg-white border-e-gray-300">
                         <div className={"flex flex-wrap w-10/12 "}>
@@ -280,6 +286,7 @@ export default function Page() {
                         </div>
                     </div>
 
+                    {/*Annual*/}
                     <div
                         className="flex w-full h-28 p-4 border-l-8 border-[#1cc88a] rounded-lg shadow-2xl bg-white border-e-gray-300">
                         <div className={"flex flex-wrap w-10/12 "}>
@@ -292,6 +299,7 @@ export default function Page() {
                         </div>
                     </div>
 
+                    {/*Task*/}
                     <div
                         className="flex w-full h-28 p-4 border-l-8 border-[#36b9cc] rounded-lg shadow-2xl bg-white border-e-gray-300">
 
@@ -317,6 +325,7 @@ export default function Page() {
                         </div>
                     </div>
 
+                    {/*Pending Requests*/}
                     <div
                         className="flex w-full h-28 p-4 border-l-8 border-[#f6c23e] rounded-lg shadow-2xl bg-white border-e-gray-300">
                         <div className={"flex flex-wrap w-10/12 "}>
@@ -334,64 +343,53 @@ export default function Page() {
                 {/* Chart-1 - Earnings Overview  */}
                 <div className={"flex flex-row w-full"}>
                     <div
-                        className={"flex flex-col w-7/12 h-auto bg-[#f8f9fc] ml-6 m-2 shadow-2xl border-e-gray-300 p-2 rounded-lg"}>
+                        className={"flex  flex-col w-7/12 h-auto bg-[#f8f9fc] ml-6 m-2 shadow-2xl border-e-gray-300 p-1 rounded-lg"}>
 
-                        <h1 className={"text-blue-500 p-5 font-semibold "}>Earnings Overview</h1>
-                        <hr className={"opacity-50 mb-2 mt-2"}/>
+                        <div className={"flex"}>
+                            <h1 className={"text-blue-500 w-11/12 p-2 font-semibold "}>Earnings Overview</h1>
+
+                            <div className={"flex flex-row w-1/12 justify-end text-gray-600 opacity-50"}>
+                                <button><BsThreeDotsVertical/></button>
+                            </div>
+                        </div>
+                        <hr className={"opacity-50 mb-2 mt-1"}/>
+
+
+                        {/*Line Chart [not working!!!]*/}
+                        {/* Image Added*/}
+                        <div className={"flex flex-row w-full justify-center  "}><Image
+                            src="/chart.png"
+                            width={600}
+                            height={600}
+                            alt="IllistrationImage"
+                        />
+                        </div>
 
                     </div>
 
+
+                    {/* Chart-2 - Revenue Overview  */}
                     <div
-                        className={"flex flex-col w-5/12 h-auto bg-[#f8f9fc] ml-6 m-2 shadow-2xl border-e-gray-300 p-2 rounded-lg"}>
+                        className={"flex flex-col w-5/12 h-auto bg-[#f8f9fc] ml-6 m-2 shadow-2xl border-e-gray-300 p-1 rounded-lg"}>
 
-                        <h1 className={"text-blue-500 p-5 font-semibold"}>Revenue Sources</h1>
-                        <hr className={"opacity-50 mb-2 mt-2"}/>
-
+                        <h1 className={"text-blue-500 p-2 font-semibold"}>Revenue Sources</h1>
+                        <hr className={"opacity-50 mb-2 mt-1"}/>
+                        <PieChart1/>
                     </div>
                 </div>
 
-                <div>
 
-                    {/*<Card>*/}
-                    {/*    <CardHeader*/}
-                    {/*        floated={false}*/}
-                    {/*        shadow={false}*/}
-                    {/*        color="transparent"*/}
-                    {/*        className="flex flex-col gap-4 rounded-none md:flex-row md:items-center"*/}
-                    {/*    >*/}
-                    {/*        <div className="w-max rounded-lg bg-gray-900 p-5 text-white">*/}
-                    {/*            <Square3Stack3DIcon className="h-6 w-6" />*/}
-                    {/*        </div>*/}
-                    {/*        <div>*/}
-                    {/*            <Typography variant="h6" color="blue-gray">*/}
-                    {/*                Line Chart*/}
-                    {/*            </Typography>*/}
-                    {/*            <Typography*/}
-                    {/*                variant="small"*/}
-                    {/*                color="gray"*/}
-                    {/*                className="max-w-sm font-normal"*/}
-                    {/*            >*/}
-                    {/*                Visualize your data in a simple way using the*/}
-                    {/*                @material-tailwind/react chart plugin.*/}
-                    {/*            </Typography>*/}
-                    {/*        </div>*/}
-                    {/*    </CardHeader>*/}
-                    {/*    <CardBody className="px-2 pb-0">*/}
-                    {/*        <Chart {...chartConfig} />*/}
-                    {/*    </CardBody>*/}
-                    {/*</Card>*/}
-                </div>
-
-
-                {/* PROJECT BOX   */}
+                {/*project & Illustration*/}
                 <div className={"flex flex-row w-full p-4"}>
 
+                    {/* PROJECTS BOX   */}
                     <div
                         className={"flex flex-col w-6/12 h-auto bg-[#f8f9fc] m-2 shadow-2xl border-e-gray-300 p-2 rounded-lg"}>
 
                         <h1 className={"text-[#4e73df] font-semibold p-4"}>Projects</h1>
                         <hr className={"opacity-70"}/>
 
+                        {/*Server Progress bar*/}
                         <div className={"flex flex-col w-full p-2"}>
                             <div className={"flex flex-row w-full"}>
                                 <div className={"flex flex-col w-6/12 text-[#858796] justify-start"}>Server Migration
@@ -400,8 +398,9 @@ export default function Page() {
                                 </div>
                             </div>
                             <div className={"flex flex-col w-full mt-2"}>
-                                <div className="rounded-xl shadow-sm overflow-hidden p-1">
-                                    <div className="relative h-4 flex items-center justify-center">
+                                <div className="rounded-xl shadow-sm  overflow-hidden p-1">
+                                    <div
+                                        className="relative h-4 flex bg-gray-200 rounded-lg items-center justify-center">
                                         <div
                                             className="absolute top-0 bottom-0 left-0 rounded-lg w-[20%] bg-[#e74a3b]"></div>
                                         <div className="relative text-blue-900 font-medium text-sm"></div>
@@ -410,7 +409,7 @@ export default function Page() {
                             </div>
                         </div>
 
-                        {/*    2*/}
+                        {/* Sales Progress bar*/}
                         <div className={"flex flex-col w-full p-2"}>
                             <div className={"flex flex-row w-full"}>
                                 <div className={"flex flex-col w-6/12 text-[#858796] justify-start"}>Sales Tracking
@@ -420,7 +419,8 @@ export default function Page() {
                             </div>
                             <div className={"flex flex-col w-full mt-2"}>
                                 <div className="rounded-xl shadow-sm overflow-hidden p-1">
-                                    <div className="relative h-4 flex items-center justify-center">
+                                    <div
+                                        className="relative h-4 flex bg-gray-200 rounded-lg items-center justify-center">
                                         <div
                                             className="absolute top-0 bottom-0 left-0 rounded-lg w-[40%] bg-[#f6c23e]"></div>
                                         <div className="relative text-blue-900 font-medium text-sm"></div>
@@ -429,7 +429,7 @@ export default function Page() {
                             </div>
                         </div>
 
-                        {/*    3*/}
+                        {/* Customer Progress bar*/}
                         <div className={"flex flex-col w-full p-2"}>
                             <div className={"flex flex-row w-full"}>
                                 <div className={"flex flex-col w-6/12 text-[#858796] justify-start"}>Customer Database
@@ -439,7 +439,8 @@ export default function Page() {
                             </div>
                             <div className={"flex flex-col w-full mt-2"}>
                                 <div className="rounded-xl shadow-sm overflow-hidden p-1">
-                                    <div className="relative h-4 flex items-center justify-center">
+                                    <div
+                                        className="relative h-4 flex bg-gray-200 rounded-lg items-center justify-center">
                                         <div
                                             className="absolute top-0 bottom-0 left-0 rounded-lg w-[60%] bg-[#4e73df]"></div>
                                         <div className="relative text-blue-900 font-medium text-sm"></div>
@@ -448,7 +449,7 @@ export default function Page() {
                             </div>
                         </div>
 
-                        {/*    4*/}
+                        {/* Payout Progress bar*/}
                         <div className={"flex flex-col w-full p-2"}>
                             <div className={"flex flex-row w-full"}>
                                 <div className={"flex flex-col w-6/12 text-[#858796] justify-start"}>Payout Details
@@ -458,7 +459,8 @@ export default function Page() {
                             </div>
                             <div className={"flex flex-col w-full mt-2"}>
                                 <div className="rounded-xl shadow-sm overflow-hidden p-1">
-                                    <div className="relative h-4 flex items-center justify-center">
+                                    <div
+                                        className="relative h-4 flex bg-gray-200 rounded-lg items-center justify-center">
                                         <div
                                             className="absolute top-0 bottom-0 left-0 rounded-lg w-[80%] bg-[#36b9cc]"></div>
                                         <div className="relative text-blue-900 font-medium text-sm"></div>
@@ -467,7 +469,7 @@ export default function Page() {
                             </div>
                         </div>
 
-                        {/*    5*/}
+                        {/* Account Progress bar*/}
                         <div className={"flex flex-col w-full p-2"}>
                             <div className={"flex flex-row w-full"}>
                                 <div className={"flex flex-col w-6/12 text-[#858796] justify-start"}>Account Setup</div>
@@ -477,7 +479,8 @@ export default function Page() {
                             </div>
                             <div className={"flex flex-col w-full mt-2"}>
                                 <div className="rounded-xl shadow-sm overflow-hidden p-1">
-                                    <div className="relative h-4 flex items-center justify-center">
+                                    <div
+                                        className="relative h-4 bg-gray-200 rounded-lg flex items-center justify-center">
                                         <div
                                             className="absolute top-0 bottom-0 left-0 rounded-lg w-[100%] bg-[#1cc88a]"></div>
                                         <div className="relative text-blue-900 font-medium text-sm"></div>
@@ -505,11 +508,14 @@ export default function Page() {
                         />
 
                         </div>
-                        <p className={"text-gray-500 mt-4 "}>Add some quality, svg illustrations to your project courtesy of <span
-                            className={"text-sky-500"}><a href="https://undraw.co/">unDraw</a></span>, a constantly
+                        <p className={"text-gray-500 mt-4 "}>Add some quality, svg illustrations to your project
+                            courtesy of <span
+                                className={"text-sky-500 hover:underline hover:text-blue-700 "}><a
+                                href="https://undraw.co/">unDraw</a></span>, a constantly
                             updated collection of beautiful svg images that you can use completely free and without
                             attribution!</p>
-                       <p className={"text-sky-500 mt-8 "}> <a href="https://undraw.co/">Browse Illustrations on unDraw →</a></p>
+                        <p className={"text-sky-500 mt-8 hover:underline hover:text-blue-700  "}><a
+                            href="https://undraw.co/">Browse Illustrations on unDraw →</a></p>
 
                     </div>
 
