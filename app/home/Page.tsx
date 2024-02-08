@@ -28,94 +28,6 @@ const Chart = dynamic(() => import("react-apexcharts"), {ssr: false});
 
 export default function Page() {
 
-    const chartConfig = {
-        type: "line",
-        height: 240,
-        series: [
-            {
-                name: "Sales",
-                data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-            },
-        ],
-        options: {
-            chart: {
-                toolbar: {
-                    show: false,
-                },
-            },
-            title: {
-                show: "",
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            colors: ["#020617"],
-            stroke: {
-                lineCap: "round",
-                curve: "smooth",
-            },
-            markers: {
-                size: 0,
-            },
-            xaxis: {
-                axisTicks: {
-                    show: false,
-                },
-                axisBorder: {
-                    show: false,
-                },
-                labels: {
-                    style: {
-                        colors: "#616161",
-                        fontSize: "12px",
-                        fontFamily: "inherit",
-                        fontWeight: 400,
-                    },
-                },
-                categories: [
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "Jul",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                ],
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: "#616161",
-                        fontSize: "12px",
-                        fontFamily: "inherit",
-                        fontWeight: 400,
-                    },
-                },
-            },
-            grid: {
-                show: true,
-                borderColor: "#dddddd",
-                strokeDashArray: 5,
-                xaxis: {
-                    lines: {
-                        show: true,
-                    },
-                },
-                padding: {
-                    top: 5,
-                    right: 20,
-                },
-            },
-            fill: {
-                opacity: 0.8,
-            },
-            tooltip: {
-                theme: "dark",
-            },
-        },
-    };
     return (
 
         <div className={"flex h-auto "}>
@@ -272,7 +184,7 @@ export default function Page() {
 
                     {/*Monthly*/}
                     <div
-                        className="flex  w-full h-28 p-4 border-l-8 border-blue-800 rounded-lg shadow-2xl bg-white border-e-gray-300">
+                        className="flex  w-full h-28 p-4 border-l-4 border-blue-800 rounded-lg shadow-2xl bg-white border-e-gray-300">
                         <div className={"flex flex-wrap w-10/12 "}>
                             <p className={"text-[#4e73df] text-[14px] "}>EARNINGS (MONTHLY)</p>
                             <p className={"text-gray-600 font-bold"}>$40,000</p>
@@ -285,7 +197,7 @@ export default function Page() {
 
                     {/*Annual*/}
                     <div
-                        className="flex w-full h-28 p-4 border-l-8 border-[#1cc88a] rounded-lg shadow-2xl bg-white border-e-gray-300">
+                        className="flex w-full h-28 p-4 border-l-4 border-[#1cc88a] rounded-lg shadow-2xl bg-white border-e-gray-300">
                         <div className={"flex flex-wrap w-10/12 "}>
                             <p className={"text-[#1cc88a] text-[14px] "}>EARNINGS (ANNUAL)</p>
                             <p className={"text-gray-600 font-bold"}>$215,000</p>
@@ -298,7 +210,7 @@ export default function Page() {
 
                     {/*Task*/}
                     <div
-                        className="flex w-full h-28 p-4 border-l-8 border-[#36b9cc] rounded-lg shadow-2xl bg-white border-e-gray-300">
+                        className="flex w-full h-28 p-4 border-l-4 border-[#36b9cc] rounded-lg shadow-2xl bg-white border-e-gray-300">
 
                         <div className={"flex flex-wrap w-10/12"}>
                             <p className={"flex-row w-full text-[#36b9cc] text-[14px]"}>TASKS</p>
@@ -324,7 +236,7 @@ export default function Page() {
 
                     {/*Pending Requests*/}
                     <div
-                        className="flex w-full h-28 p-4 border-l-8 border-[#f6c23e] rounded-lg shadow-2xl bg-white border-e-gray-300">
+                        className="flex w-full h-28 p-4 border-l-4 border-[#f6c23e] rounded-lg shadow-2xl bg-white border-e-gray-300">
                         <div className={"flex flex-wrap w-10/12 "}>
                             <p className={"flex-row w-full text-[#f6c23e] text-[14px]  "}>PENDING REQUESTS</p>
                             <p className={"flex-row w-full text-gray-600 font-bold "}>18</p>
