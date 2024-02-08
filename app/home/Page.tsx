@@ -16,7 +16,7 @@ import {FaSearch} from "react-icons/fa";
 import {IoIosNotifications} from "react-icons/io";
 import {FaMessage} from "react-icons/fa6";
 import {FcBusinessman} from "react-icons/fc";
-import pic from "../../public/image1.png"
+import Image from 'next/image'
 
 import {Square3Stack3DIcon} from "@heroicons/react/24/outline";
 import {Form} from "react-bootstrap";
@@ -498,7 +498,12 @@ export default function Page() {
                         <h1 className={"text-[#4e73df] font-semibold p-4"}>Illustrations</h1>
                         <hr className={"opacity-70"}/>
 
-                        <div className={"flex flex-row w-full"}><img src={pic} alt="Illustration"/></div>
+                        <div className={"flex flex-row w-full"}> <Image
+                            src="/image1.png"
+                            width={500}
+                            height={500}
+                            alt="Picture of the author"
+                        /></div>
 
 
                     </div>
