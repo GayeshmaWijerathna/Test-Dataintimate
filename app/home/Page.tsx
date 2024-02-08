@@ -521,8 +521,9 @@ export default function Page() {
 
                 <div className={"flex flex-row w-full p-4 h-auto"}>
 
+                    {/*Color DIV*/}
                     <div className={"flex w-6/12 h-auto m-2 p-2 justify-around"}>
-
+                        {/*Left side*/}
                         <div className={"w-6/12  "}>
                             <div className={"flex flex-col rounded-md  h-20 bg-[#4e73df] justify-items-start justify-center  m-3"}>
                                 <div className={"ml-6"}>
@@ -554,6 +555,7 @@ export default function Page() {
                             </div>
                         </div>
 
+                        {/*Right Side*/}
                         <div className={"w-6/12 "}>
                             <div className={"flex flex-col rounded-md h-20 bg-[#1cc88a]  justify-items-start justify-center  m-3"}>
                                 <div className={"ml-6"}>
