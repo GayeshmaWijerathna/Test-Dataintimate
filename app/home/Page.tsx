@@ -16,8 +16,6 @@ import {IoIosNotifications} from "react-icons/io";
 import {FaMessage} from "react-icons/fa6";
 import {FcBusinessman} from "react-icons/fc";
 import Image from 'next/image'
-
-import {Square3Stack3DIcon} from "@heroicons/react/24/outline";
 import {Form} from "react-bootstrap";
 import dynamic from "next/dynamic";
 import {BsThreeDotsVertical} from "react-icons/bs";
@@ -244,7 +242,6 @@ export default function Page() {
                                     type="search"
                                     placeholder="Search for.."
                                     aria-label="Search"
-
                                 />
                             </Form> <Button className="outline-success rounded-r bg-blue-600  p-1"><FaSearch
                             className={"text-1xl"}/></Button>
@@ -524,65 +521,73 @@ export default function Page() {
 
                 <div className={"flex flex-row w-full p-4 h-auto"}>
 
-                    <div className={"flex w-6/12 h-auto m-2 p-2 rounded-lg justify-around"}>
+                    <div className={"flex w-6/12 h-auto m-2 p-2 justify-around"}>
 
-                        <div className={"w-6/12 "}>
-                            <div className={"flex flex-col h-20 bg-[#4e73df] justify-center items-center m-3"}>
-                                <div className={"flex "}><h1>Primary</h1></div>
-                                <br/>
-                                <div className={"flex "}><p>#4e73df</p></div>
+                        <div className={"w-6/12  "}>
+                            <div className={"flex flex-col rounded-md  h-20 bg-[#4e73df] justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Primary</h1></div>
+                                    <div className={"text-[11px] opacity-50"}><p>#4e73df</p></div>
+                                </div>
                             </div>
 
-                            <div className={"flex flex-col h-20 bg-[#36b9cc] justify-center items-center m-3"}>
-                                <div className={"flex "}><h1>Info</h1></div>
-                                <br/>
-                                <div className={"flex "}><p>#36b9cc</p></div>
+                            <div className={"flex flex-col rounded-md h-20 bg-[#36b9cc]  justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Info</h1></div>
+                                <div className={"text-[11px] opacity-50"}><p>#36b9cc</p></div>
+                            </div>
                             </div>
 
-                            <div className={"flex flex-col  h-20 bg-[#e74a3b] justify-center items-center m-3"}>
-                                <div className={"flex "}><h1>Danger</h1></div>
-                                <br/>
-                                <div className={"flex "}><p>#e74a3b</p></div>
+                            <div className={"flex flex-col rounded-md h-20 bg-[#e74a3b]  justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Danger</h1></div>
+                                <div className={"text-[11px] opacity-50"}><p>#e74a3b</p></div>
+                            </div>
                             </div>
 
                             <div
-                                className={"flex flex-col  h-20 bg-[#f8f9fc] justify-center items-center m-3 shadow-2xl border-e-gray-300"}>
-                                <div className={"flex "}><h1 className={"text-[#5a5c69]"}>Light</h1></div>
-                                <br/>
-                                <div className={"flex "}><p className={"text-[#5a5c69]"}>#f8f9fc</p></div>
+                                className={"flex flex-col rounded-md h-20 bg-[#f8f9fc]  justify-items-start justify-center  m-3 shadow-2xl border-e-gray-300"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1 className={"text-[#5a5c69]"}>Light</h1></div>
+                                <div className={"text-[11px] opacity-50"}><p className={"text-[#5a5c69]"}>#f8f9fc</p></div>
+                            </div>
                             </div>
                         </div>
 
                         <div className={"w-6/12 "}>
-                        <div className={"flex flex-col h-20 bg-[#1cc88a] justify-center items-center m-3"}>
-                            <div className={"flex "}><h1>Success</h1></div>
-                            <br/>
-                            <div className={"flex "}><p>#1cc88a</p></div>
-                        </div>
+                            <div className={"flex flex-col rounded-md h-20 bg-[#1cc88a]  justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Success</h1></div>
+                                <div className={"text-[11px] opacity-50"}><p>#1cc88a</p></div>
+                            </div>
+                            </div>
 
-                        <div className={"flex flex-col  h-20 bg-[#f6c23e] justify-center items-center m-3"}>
-                            <div className={"flex "}><h1>Warning</h1></div>
-                            <br/>
-                            <div className={"flex "}><p>#f6c23e</p></div>
-                        </div>
+                            <div className={"flex flex-col rounded-md h-20 bg-[#f6c23e]  justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Warning</h1></div>
+                                    <div className={"text-[11px] opacity-50"}><p>#f6c23e</p></div>
+                            </div>
+                            </div>
 
-                        <div className={"flex flex-col  h-20 bg-[#858796] justify-center items-center m-3"}>
-                            <div className={"flex "}><h1>Secondary</h1></div>
-                            <br/>
-                            <div className={"flex "}><p>#858796</p></div>
-                        </div>
+                            <div className={"flex flex-col rounded-md h-20 bg-[#858796]  justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Secondary</h1></div>
+                                <div className={"text-[11px] opacity-50"}><p>#858796</p></div>
+                            </div>
+                            </div>
 
-                        <div className={"flex flex-col  h-20 bg-[#5a5c69] justify-center items-center m-3"}>
-                            <div className={"flex "}><h1>Dark</h1></div>
-                            <br/>
-                            <div className={"flex "}><p>#5a5c69</p></div>
-                        </div>
+                            <div className={"flex flex-col rounded-md h-20 bg-[#5a5c69]  justify-items-start justify-center  m-3"}>
+                                <div className={"ml-6"}>
+                                    <div className={"font-semibold"}><h1>Dark</h1></div>
+                                <div className={"text-[11px] opacity-50"}><p>#5a5c69</p></div>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
 
                     <div
-                        className={"flex flex-col w-6/12 h-auto bg-[#f8f9fc] m-2 shadow-2xl border-e-gray-300 p-2 rounded-lg"}>
+                        className={"flex flex-col w-6/12 h-56 bg-[#f8f9fc] m-2 shadow-2xl border-e-gray-300 p-2 rounded-lg"}>
 
                         <h1 className={"text-[#4e73df] font-semibold p-4"}>Development Approach</h1>
                         <hr className={"opacity-70"}/>
